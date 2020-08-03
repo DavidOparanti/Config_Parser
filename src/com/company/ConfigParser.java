@@ -23,6 +23,8 @@ public class ConfigParser {
 
                 break;
 
+            default:
+                throw new IllegalStateException("Unexpected value: " + environment);
         }
     }
 
