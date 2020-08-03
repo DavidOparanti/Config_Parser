@@ -1,26 +1,24 @@
 package com.company;
-import java.util.Scanner;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class ConfigParser {
-    private  String environment;
+    //private  String environment;
+    private String fileName;
 
 
-    public ConfigParser(String environment) {
-        this.environment = environment;
-    }
 
-
-    public static void configParser() {
-
+    public ConfigParser(String fileName) throws FileNotFoundException, IOException {
+        this.fileName = fileName;
 
     }
 
-    public static void configParser(String environment) {
+
+    public void configParser(String environment) {
 
         switch (environment) {
             case "production":
-
-                configParser();
 
                 break;
 
@@ -38,16 +36,6 @@ public class ConfigParser {
     }
 
 
-    public static void main(String[] args) {
-        String environment;
-        if(args.length ==0) {
-            environment = "production";
-        } else {
-            environment = args[0];
-        }
-    }
-    ConfigParser config = new ConfigParser();
-    config.
 
 
 }
