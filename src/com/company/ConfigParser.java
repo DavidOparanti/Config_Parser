@@ -29,13 +29,12 @@ public class ConfigParser {
     }
 
     public void convertFileToMap() throws FileNotFoundException {
-        String src = "src/com/company/configFile/"+ this.fileName;  //src/com/company/configFile/config.txt
+        String sourceOfFile = "src/com/company/configFile/"+ this.fileName;
 
-        System.out.println(src);
-        File fis = new File(src);
-        Scanner sc = new Scanner(fis);
-        while (sc.hasNextLine()) {
-            String line = sc.nextLine();
+        File fis = new File(sourceOfFile);
+        Scanner scanner = new Scanner(fis);
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
             if(line.contains("=")) {
                 String[] lineIput = line.split("=");
 
@@ -54,15 +53,17 @@ public class ConfigParser {
         return key;
     }
 
-
-    public String[] converStringToArray (String text) {
-        //text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";
-        int indexStart = text.indexOf("[");
-        int indexende = text.indexOf("]");
-        text = text.substring(0,indexStart) + text.substring(indexende + 1);
-        String[] textJson = text.split("=");
-        return textJson;
-    }
+/**
+ * This method is no longer in used. convertFileToMap method render this method useless.
+ */
+//    public String[] converStringToArray (String text) {
+//        //text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";
+//        int indexStart = text.indexOf("[");
+//        int indexende = text.indexOf("]");
+//        text = text.substring(0,indexStart) + text.substring(indexende + 1);
+//        String[] textJson = text.split("=");
+//        return textJson;
+//    }
 
 
 
