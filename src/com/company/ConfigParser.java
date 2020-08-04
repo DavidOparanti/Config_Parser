@@ -29,7 +29,7 @@ public class ConfigParser {
     }
 
     public void convertFileToMap() throws FileNotFoundException {
-        String src = "src/com/company/"+ this.fileName;
+        String src = "src/com/company/configFile/"+ this.fileName;  //src/com/company/configFile/config.txt
 
         System.out.println(src);
         File fis = new File(src);
