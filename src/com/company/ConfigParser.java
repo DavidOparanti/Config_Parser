@@ -5,17 +5,30 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class ConfigParser {
-    //private  String environment;
-    private String fileName;
-    private HashMap<String, String> map = new HashMap<>();
+    //Instance variable
+    private String fileName;   //stores the fileName. this was initialize in the constructors.
+    private HashMap<String, String> map = new HashMap<>();   //Stores the key value pairs of the config file
 
 
-
+    /**
+     * Default contructor
+     * It default enviroment to production if no argument is passed when
+     * the ConfigParser class is instantiated.
+     * @throws FileNotFoundException
+     */
     public ConfigParser() throws FileNotFoundException {
         this.fileName = "config.txt";
         convertFileToMap();
     }
 
+
+    /**
+     * The secondary constructor.
+     * It assign config file appropriately base the environment passed
+     * When the ConfigParser class is instantiated.
+     * @param environment for the environment.
+     * @throws FileNotFoundException
+     */
     public ConfigParser(String environment) throws FileNotFoundException {
 
         if(environment.toLowerCase() == "staging") {
@@ -28,12 +41,20 @@ public class ConfigParser {
 
     }
 
-
+    /**
+     *
+     * @param key
+     * @return the value of the key passed.
+     */
     public String get(String key) {
         return map.get(key);
     }
 
-
+    /**
+     * This method read through the config file and populate the map
+     * base the environment passed.
+     * @throws FileNotFoundException
+     */
     public void convertFileToMap() throws FileNotFoundException {
         String sourceOfFile = "src/com/company/configFile/"+ this.fileName;
 
@@ -41,17 +62,16 @@ public class ConfigParser {
         Scanner scanner = new Scanner(fis);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if(line.contains("=")) {
+            if(line.contains("=")) {    //Only read character that has key value pairs.
                 String[] lineIput = line.split("=");
 
-                if(!map.containsKey(lineIput[0])) {
+                if(!map.containsKey(lineIput[0])) {    // This if statement ignore duplicate key.
                     map.put(lineIput[0], lineIput[1]);
                 }
 
             }
         }
 
-        System.out.println(map.toString());
     }
 
 
