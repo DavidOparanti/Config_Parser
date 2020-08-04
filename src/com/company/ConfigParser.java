@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ConfigParser {
     //private  String environment;
     private String fileName;
-    private HashMap<String, String> JsonObject = new HashMap<>();
+    private HashMap<String, String> map = new HashMap<>();
 
 
 
@@ -38,18 +38,21 @@ public class ConfigParser {
             if(line.contains("=")) {
                 String[] lineIput = line.split("=");
 
-                if(!JsonObject.containsKey(lineIput[0])) {
-                    JsonObject.put(lineIput[0], lineIput[1]);
+                if(!map.containsKey(lineIput[0])) {
+                    map.put(lineIput[0], lineIput[1]);
                 }
 
             }
         }
 
-        System.out.println(JsonObject.toString());
+        System.out.println(map.toString());
     }
 
     public String get(String key) {
-
+//        map.entrySet().stream()
+//                // ...
+//                .forEach(e -> System.out.println(e.getKey() + ":" + e.getValue()));
+//    }
         return key;
     }
 
