@@ -25,7 +25,11 @@ public class ConfigParser {
             String line = sc.nextLine();
             if(line.contains("=")) {
                 String[] lineIput = line.split("=");
-                JsonObject.put(lineIput[0], lineIput[1]);
+
+                if(!JsonObject.containsKey(lineIput[0])) {
+                    JsonObject.put(lineIput[0], lineIput[1]);
+                }
+
             }
         }
 
