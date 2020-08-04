@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ConfigParser {
     //Instance variable
     private String fileName;   //stores the fileName. this was initialize in the constructors.
-    private HashMap<String, String> map = new HashMap<>();   //Stores the key value pairs of the config file
+    private final HashMap<String, String> map = new HashMap<>();   //Stores the key value pairs of the config file
 
 
     /**
@@ -31,10 +31,10 @@ public class ConfigParser {
      */
     public ConfigParser(String environment) throws FileNotFoundException {
 
-        if(environment.toLowerCase() == "staging") {
+        if(environment.toLowerCase().equals("staging")) {
             this.fileName = "config.txt.staging";
 
-        } else if(environment.toLowerCase() == "development") {
+        } else if(environment.toLowerCase().equals("development")) {
             this.fileName = "config.txt.dev";
         }
         convertFileToMap();
@@ -83,15 +83,15 @@ public class ConfigParser {
  *
  * This method is no longer in used. convertFileToMap method render it function useless.
  */
-//    public String[] converStringToArray (String text) {
-//        //text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";
-//        int indexStart = text.indexOf("[");
-//        int indexende = text.indexOf("]");
-//        text = text.substring(0,indexStart) + text.substring(indexende + 1);
-//        String[] textJson = text.split("=");
-//        return textJson;
-//    }
-
+   /* public String[] converStringToArray (String text) {
+        //text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";
+        int indexStart = text.indexOf("[");
+        int indexende = text.indexOf("]");
+        text = text.substring(0,indexStart) + text.substring(indexende + 1);
+        String[] textJson = text.split("=");
+        return textJson;
+    }
+*/
 
 
 }
