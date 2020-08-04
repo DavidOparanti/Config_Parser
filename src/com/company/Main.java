@@ -10,7 +10,7 @@ public class Main {
 	// write your code here
 
 
-        ConfigParser config = new ConfigParser("config.txt");
+        ConfigParser config = new ConfigParser();
         //config.convertFileToMap();
 
 

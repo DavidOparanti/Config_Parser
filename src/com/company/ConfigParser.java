@@ -12,15 +12,25 @@ public class ConfigParser {
 
 
 
+    public ConfigParser() throws FileNotFoundException {
+        this.fileName = "config.txt";
+        convertFileToMap();
+    }
 
-    public ConfigParser(String fileName) throws FileNotFoundException {
-        this.fileName = fileName;
+    public ConfigParser(String environment) throws FileNotFoundException {
+        if(environment.toLowerCase() == "staging") {
+            this.fileName = "config.txt.staging";
+
+        } else if(environment.toLowerCase() == "development") {
+            this.fileName = "config.txt.dev";
+        }
         convertFileToMap();
 
     }
 
     public void convertFileToMap() throws FileNotFoundException {
         String src = "src/com/company/"+ this.fileName;
+
         System.out.println(src);
         File fis = new File(src);
         Scanner sc = new Scanner(fis);
@@ -37,6 +47,11 @@ public class ConfigParser {
         }
 
         System.out.println(JsonObject.toString());
+    }
+
+    public String get(String key) {
+
+        return key;
     }
 
 
