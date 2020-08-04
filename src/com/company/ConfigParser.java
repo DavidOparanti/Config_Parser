@@ -15,13 +15,14 @@ public class ConfigParser {
 
     public ConfigParser(String fileName) throws FileNotFoundException {
         this.fileName = fileName;
-        convertFileToMap(fileName);
+        convertFileToMap();
 
     }
 
-    public void convertFileToMap(String fileName) throws FileNotFoundException {
-        String src = "src/com/company/"+ fileName;
-        File fis = new File(fileName);
+    public void convertFileToMap() throws FileNotFoundException {
+        String src = "src/com/company/"+ this.fileName;
+        System.out.println(src);
+        File fis = new File(src);
         Scanner sc = new Scanner(fis);
         while (sc.hasNextLine()) {
             String line = sc.nextLine();

@@ -8,16 +8,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	// write your code here
-        String environment;
-        if(args.length == 0) {
-            environment = "production";
 
-        } else {
-            environment = args[0];
-        }
 
-        ConfigParser config = new ConfigParser(environment);
-        config.convertFileToMap();
+        ConfigParser config = new ConfigParser("config.txt");
+        //config.convertFileToMap();
 
 
 
