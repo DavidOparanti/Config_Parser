@@ -2,7 +2,6 @@ package com.company;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class ConfigParser {
@@ -18,6 +17,7 @@ public class ConfigParser {
     }
 
     public ConfigParser(String environment) throws FileNotFoundException {
+
         if(environment.toLowerCase() == "staging") {
             this.fileName = "config.txt.staging";
 
