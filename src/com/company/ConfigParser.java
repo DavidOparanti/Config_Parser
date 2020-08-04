@@ -13,13 +13,15 @@ public class ConfigParser {
 
 
 
-    public ConfigParser(String fileName)  {
+    public ConfigParser(String fileName) throws FileNotFoundException {
         this.fileName = fileName;
+        convertFileToMap(fileName);
 
     }
 
-    public void convertFileToMap() throws FileNotFoundException {
-        File fis = new File("src/com/company/config.txt");
+    public void convertFileToMap(String fileName) throws FileNotFoundException {
+        String src = "src/com/company/"+ fileName;
+        File fis = new File(fileName);
         Scanner sc = new Scanner(fis);
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
@@ -35,6 +37,8 @@ public class ConfigParser {
 
         System.out.println(JsonObject.toString());
     }
+
+
     public String[] converStringToArray (String text) {
         //text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";
         int indexStart = text.indexOf("[");
@@ -43,15 +47,6 @@ public class ConfigParser {
         String[] textJson = text.split("=");
         return textJson;
     }
-
-
-
-    public String get(String value){
-
-
-       return "key";
-    }
-
 
 
 
