@@ -17,14 +17,9 @@ public class Main {
         }
 
         ConfigParser config = new ConfigParser(environment);
+        config.convertFileToMap();
 
-        String text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";
-        int indexStart = text.indexOf("[");
-        int indexende = text.indexOf("]");
-        text = text.substring(0,indexStart) + text.substring(indexende + 1);
-        String[] textJson = text.split("=");
 
-        System.out.println(Arrays.toString(textJson));
 
     }
 }

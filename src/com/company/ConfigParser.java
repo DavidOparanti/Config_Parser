@@ -3,11 +3,12 @@ package com.company;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class ConfigParser {
     //private  String environment;
     private String fileName;
-    private Map<String, String> JsonObject;
+    private HashMap<String, String> JsonObject = new HashMap<>();
 
 
 
@@ -17,6 +18,19 @@ public class ConfigParser {
 
     }
 
+    public void convertFileToMap() throws FileNotFoundException {
+        File fis = new File("src/com/company/config.txt");
+        Scanner sc = new Scanner(fis);
+        while (sc.hasNextLine()) {
+            String line = sc.nextLine();
+            if(line.contains("=")) {
+                String[] lineIput = line.split("=");
+                JsonObject.put(lineIput[0], lineIput[1]);
+            }
+        }
+
+        System.out.println(JsonObject.toString());
+    }
     public String[] converStringToArray (String text) {
         //text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";
         int indexStart = text.indexOf("[");
