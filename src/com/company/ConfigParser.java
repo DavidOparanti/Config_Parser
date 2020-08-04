@@ -28,6 +28,12 @@ public class ConfigParser {
 
     }
 
+
+    public String get(String key) {
+        return map.get(key);
+    }
+
+
     public void convertFileToMap() throws FileNotFoundException {
         String sourceOfFile = "src/com/company/configFile/"+ this.fileName;
 
@@ -48,16 +54,14 @@ public class ConfigParser {
         System.out.println(map.toString());
     }
 
-    public String get(String key) {
-//        map.entrySet().stream()
-//                // ...
-//                .forEach(e -> System.out.println(e.getKey() + ":" + e.getValue()));
-//    }
-        return key;
-    }
+
+
+
+
 
 /**
- * This method is no longer in used. convertFileToMap method render this method useless.
+ *
+ * This method is no longer in used. convertFileToMap method render it function useless.
  */
 //    public String[] converStringToArray (String text) {
 //        //text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";

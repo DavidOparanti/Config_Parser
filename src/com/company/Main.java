@@ -10,7 +10,8 @@ public class Main {
 	// write your code here
 
 
-        ConfigParser config = new ConfigParser();
+        ConfigParser config = new ConfigParser("staging");
+        System.out.println(config.get("mode"));
 
 
 
