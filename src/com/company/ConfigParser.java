@@ -54,12 +54,12 @@ public class ConfigParser {
         if(map.size() > 0) {
             return map.getOrDefault(key, "Invalid key");
         }
-        return this.logInvalidEnvironment();
+        return this.logInvalidEnvironmentsError();       // return error message if invalid environmet is passed.
 
     }
 
 
-    public String logInvalidEnvironment () {
+    public String logInvalidEnvironmentsError() {
         return "Invalid Environment. Do you mean staging or development or production?\n" +
                 "For production environment, call without passing any argument\n" +
                 "e.g {java Main}               for production environment\n" +
