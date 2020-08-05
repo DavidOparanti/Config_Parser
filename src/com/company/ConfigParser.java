@@ -34,15 +34,14 @@ public class ConfigParser {
 
         if(environment.toLowerCase().equals("staging")) {
             this.fileName = "config.txt.staging";
-            convertFileToMap(); //This method need to be called inside the constructor like so.
-            // We need it to read and convert the config file to  HashMap when the class is instantiated.
+            convertFileToMap();      //This method need to be called inside the constructor like so.
+                                    // We need it to read and convert the config file to  HashMap when the class is instantiated.
         } else if(environment.toLowerCase().equals("development")) {
             this.fileName = "config.txt.dev";
-            convertFileToMap(); //This method need to be called inside the constructor like so.
-            // We need it to read and convert the config file to  HashMap when the class is instantiated.
+            convertFileToMap();      //This method need to be called inside the constructor like so.
+                                    // We need it to read and convert the config file to  HashMap when the class is instantiated.
         }
-        //convertFileToMap(); //This method need to be called inside the constructor like so.
-                           // We need it to read and convert the config file to  HashMap when the class is instantiated.
+
 
     }
 
@@ -53,11 +52,7 @@ public class ConfigParser {
      */
     public String get(String key) {
         if(map.size() > 0) {
-            if(map.containsKey(key)) {
-                return map.get(key);
-            } else {
-                return "Invalid key";
-            }
+            return map.getOrDefault(key, "Invalid key");
         }
         return "Invalid Environment. Do you mean staging or development or production?\n" +
                 "For production environment, call without passing any argument\n" +
