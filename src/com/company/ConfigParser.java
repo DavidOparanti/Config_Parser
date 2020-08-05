@@ -18,11 +18,10 @@ public class ConfigParser {
      */
     public ConfigParser() throws FileNotFoundException {
         this.fileName = "config.txt";
-        convertFileToMap(); //This method need to be called inside the constructor like so.
-                           // I need it to read and convert the config file to HashMap when the class is instantiated.
+        convertFileToMap();                 //This method need to be called inside the constructor like so.
+                                            // I need it to read and convert the config file to HashMap when
+                                            // the class is instantiated.
     }
-
-
     /**
      * The secondary constructor.
      * It assign config file appropriately base the environment passed
@@ -34,12 +33,14 @@ public class ConfigParser {
 
         if(environment.toLowerCase().equals("staging")) {
             this.fileName = "config.txt.staging";
-            convertFileToMap();      //This method need to be called inside the constructor like so.
-                                    // I need it to read and convert the config file to  HashMap when the class is instantiated.
+            convertFileToMap();                             //This method need to be called inside the constructor like so.
+                                                            // I need it to read and convert the config file to  HashMap
+                                                             //when the class is instantiated.
         } else if(environment.toLowerCase().equals("development")) {
             this.fileName = "config.txt.dev";
-            convertFileToMap();      //This method need to be called inside the constructor like so.
-                                    // I need it to read and convert the config file to  HashMap when the class is instantiated.
+            convertFileToMap();                         //This method need to be called inside the constructor like so.
+                                                        // I need it to read and convert the config file to  HashMap
+                                                        // when the class is instantiated.
         }
 
 
@@ -54,7 +55,7 @@ public class ConfigParser {
         if(map.size() > 0) {
             return map.getOrDefault(key, "Invalid key");
         }
-        return this.logInvalidEnvironmentsError();       // return error message if invalid environmet is passed.
+        return this.logInvalidEnvironmentsError();                  // return error message if invalid environmet is passed.
 
     }
 
@@ -79,10 +80,10 @@ public class ConfigParser {
         Scanner scanner = new Scanner(fis);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if(line.contains("=")) {    //Only read character that has key value pairs.
+            if(line.contains("=")) {                              //Only read character that has key value pairs.
                 String[] lineIput = line.split("=");
 
-                if(!map.containsKey(lineIput[0])) {    //Ignore duplicate key.
+                if(!map.containsKey(lineIput[0])) {               //Ignore duplicate key.
                     map.put(lineIput[0], lineIput[1]);
                 }
 

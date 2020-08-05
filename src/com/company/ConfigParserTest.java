@@ -16,7 +16,7 @@ class ConfigParserTest {
      */
     @Test
     void getTestProduction() throws FileNotFoundException {
-        ConfigParser config = new ConfigParser(); // prodcution
+        ConfigParser config = new ConfigParser();                               // prodcution
         assertEquals("production", config.get("mode"));
     }
 
