@@ -7,14 +7,14 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws IOException  {
-	// write your code here
-
-
-        ConfigParser config = new ConfigParser("staging");
-
-        System.out.println(config.get("mode"));
-
-
+	//write your code here
+        if(args.length < 1) {
+            ConfigParser config = new ConfigParser();
+            System.out.println(config.get("mode")); // production
+        } else {
+            ConfigParser config = new ConfigParser(args[0]);
+            System.out.println(config.get("modesty"));
+        }
 
     }
 }
