@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ConfigParser {
 
-    private String fileName;   //stores the fileName. this was initialize in the constructors.
+    private String fileName;                                        //stores the fileName. this was initialize in the constructors.
     private final HashMap<String, String> map = new HashMap<>();   //Stores the key value pairs of the config file
 
 
@@ -33,14 +33,11 @@ public class ConfigParser {
 
         if(environment.toLowerCase().equals("staging")) {
             this.fileName = "config.txt.staging";
-            convertFileToMap();                             //This method need to be called inside the constructor like so.
-                                                            // I need it to read and convert the config file to  HashMap
-                                                             //when the class is instantiated.
+            convertFileToMap();
+
         } else if(environment.toLowerCase().equals("development")) {
             this.fileName = "config.txt.dev";
-            convertFileToMap();                         //This method need to be called inside the constructor like so.
-                                                        // I need it to read and convert the config file to  HashMap
-                                                        // when the class is instantiated.
+            convertFileToMap();
         }
 
 
@@ -53,7 +50,7 @@ public class ConfigParser {
      */
     public String get(String key) {
         if(map.size() > 0) {
-            return map.getOrDefault(key, "Invalid key");
+            return map.getOrDefault(key, "Invalid key: " + key);
         }
         return this.logInvalidEnvironmentsError();                  // return error message if invalid environmet is passed.
 
@@ -76,8 +73,8 @@ public class ConfigParser {
     public void convertFileToMap() throws FileNotFoundException {
         String sourceOfFile = "src/com/company/configFile/"+ this.fileName;
 
-        File fis = new File(sourceOfFile);
-        Scanner scanner = new Scanner(fis);
+        File fileInputStream = new File(sourceOfFile);
+        Scanner scanner = new Scanner(fileInputStream);
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             if(line.contains("=")) {                              //Only read character that has key value pairs.
