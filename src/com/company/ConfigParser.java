@@ -14,7 +14,7 @@ public class ConfigParser {
      * Default contructor
      * It default enviroment to production if no argument is passed when
      * the ConfigParser class is instantiated.
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException FileNotFoundException
      */
     public ConfigParser() throws FileNotFoundException {
         this.fileName = "config.txt";
@@ -28,7 +28,7 @@ public class ConfigParser {
      * It assign config file appropriately base the environment passed
      * When the ConfigParser class is instantiated.
      * @param environment for the environment.
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException FileNotFoundException
      */
     public ConfigParser(String environment) throws FileNotFoundException {
 
@@ -47,7 +47,7 @@ public class ConfigParser {
 
     /**
      *
-     * @param key
+     * @param key key
      * @return the value of the key passed.
      */
     public String get(String key) {
@@ -65,7 +65,7 @@ public class ConfigParser {
     /**
      * This method read through the config file and populate the map
      * base the environment passed.
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException FileNotFoundException
      */
     public void convertFileToMap() throws FileNotFoundException {
         String sourceOfFile = "src/com/company/configFile/"+ this.fileName;
@@ -85,21 +85,6 @@ public class ConfigParser {
         }
 
     }
-
-
-/**
- *
- * This method is no longer in used. convertFileToMap method render it function useless.
- */
-   /* public String[] converStringToArray (String text) {
-        //text = "name=david\nage=none\nsex=male\ncity=lagos[applicatin]\nname=dan";
-        int indexStart = text.indexOf("[");
-        int indexende = text.indexOf("]");
-        text = text.substring(0,indexStart) + text.substring(indexende + 1);
-        String[] textJson = text.split("=");
-        return textJson;
-    }
-*/
 
 
 }
