@@ -8,10 +8,10 @@ public class Main {
 
         if(args.length < 1) {
             ConfigParser config = new ConfigParser();
-            System.out.println(config.get("hosts")); // for production environment
+            System.out.println(config.get("host")); // for production environment => 127.0.0.1
         } else {
             ConfigParser config = new ConfigParser(args[0]);
-            System.out.println(config.get("modes")); // for staging and development environment
+            System.out.println(config.get("mode")); // for staging and development environment => staging
         }
 
     }
