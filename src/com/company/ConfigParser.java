@@ -19,7 +19,7 @@ public class ConfigParser {
     public ConfigParser() throws FileNotFoundException {
         this.fileName = "config.txt";
         convertFileToMap(); //This method need to be called inside the constructor like so.
-                           // We need it to read and convert the config file to HashMap when the class is instantiated.
+                           // I need it to read and convert the config file to HashMap when the class is instantiated.
     }
 
 
@@ -35,11 +35,11 @@ public class ConfigParser {
         if(environment.toLowerCase().equals("staging")) {
             this.fileName = "config.txt.staging";
             convertFileToMap();      //This method need to be called inside the constructor like so.
-                                    // We need it to read and convert the config file to  HashMap when the class is instantiated.
+                                    // I need it to read and convert the config file to  HashMap when the class is instantiated.
         } else if(environment.toLowerCase().equals("development")) {
             this.fileName = "config.txt.dev";
             convertFileToMap();      //This method need to be called inside the constructor like so.
-                                    // We need it to read and convert the config file to  HashMap when the class is instantiated.
+                                    // I need it to read and convert the config file to  HashMap when the class is instantiated.
         }
 
 
