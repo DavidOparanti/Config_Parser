@@ -42,7 +42,7 @@ This return the value of key passed in as arguemnt.
 ````
 ## Handling Error:
 ````
-1 "Invalid key" is returned if key does not exit in the config map object
+1 "Invalid key {key}" is returned if key does not exit in the config map object
 2 "Invalid Environment. Do you mean staging or development or production?\n" +
                   "For production environment, call without passing any argument\n" +
                   "e.g {java Main}               for production environment\n" +

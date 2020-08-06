@@ -52,7 +52,7 @@ public class ConfigParser {
         if(map.size() > 0) {
             return map.getOrDefault(key, "Invalid key: " + key);
         }
-        return this.logInvalidEnvironmentsError();                  // return error message if invalid environmet is passed.
+        return this.logInvalidEnvironmentsError();                  // return error message if invalid environment is passed.
 
     }
 
