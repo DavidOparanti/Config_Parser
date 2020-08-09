@@ -51,7 +51,7 @@ This return the value of key passed in as arguemnt.
 ... is returned if Wrong environmet used doing program start up. 
 ````
 ## Acknowledgments
-* * All Decagon Java Stack Leads and associates.(For taking out time to putting us through)
-* * Decagon (for providing enabling environment to learn)
+* * All Decagon Java Stack Leads and associates.(For taking out time to putting us through.)
+* * Decagon (for providing enabling environment to learn.)
 * * My Stack colleagues.(These are amazing individual.) 
 
